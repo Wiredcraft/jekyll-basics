@@ -1,0 +1,7 @@
+{
+  "name": "jekyll-basics",
+  "homepage": "https://github.com/Wiredcraft/marketing",
+  "dependencies": {
+    "egg-scss": "latest"
+  }
+}

@@ -1,0 +1,45 @@
+# Site settings
+title: Jekyll Basics
+email: info@wiredcraft.com
+description: "A boilerplate set up to create a bilingual Jekyll website."
+keywords:
+- Jekyll
+
+# URL
+url: "http://wiredcraft.github.io/jekyll-basics"
+baseurl: ""
+
+# Google tracking (Analytics and Google Tag Manager)
+#google:
+#  tag-manager: GTM-XXXXXX
+#  analytics: UA-XXXXXXX-X
+
+# Build settings
+exclude: ['README.md', 'Makefile', '_PROTECTED', '_VARIANTS']
+
+# Collections
+excerpt_separator: <!-- more -->
+permalink: /:categories/blog/:title/
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      class: post
+  - scope:
+      path: ""
+      type: drafts
+    values:
+      layout: post
+      class: post
+
+# Plugins
+gems:
+- jekyll-redirect-from
+- jekyll-sitemap
+
+# Multiligual
+lang:
+  - en
+  - zh

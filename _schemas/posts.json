@@ -1,0 +1,55 @@
+{
+  "title": "Posts",
+  "jekyll": {
+    "type": "content",
+    "id": "posts",
+    "dir": "_posts"
+  },
+  "JSONSchema": {
+    "type": "object",
+    "required": [
+      "title",
+      "date",
+      "body"
+    ],
+    "properties": {
+      "layout": {
+        "type": "string",
+        "title": "Layout"
+      },
+      "title": {
+        "type": "string",
+        "title": "Title"
+      },
+      "permalink": {
+        "type": "string",
+        "title": "Permalink"
+      },
+      "date": {
+        "type": "string",
+        "title": "Creation Date",
+        "format": "date"
+      },
+      "category": {
+        "type": "string",
+        "title": "Category"
+      },
+      "tags": {
+        "type": "array",
+        "title": "Tags",
+        "items": {
+          "type": "string"
+        }
+      },
+      "body": {
+        "type": "string",
+        "title": "Body"
+      }
+    }
+  },
+  "uiSchema": {
+    "body": {
+      "ui:widget": "customCodeMirror"
+    }
+  }
+}

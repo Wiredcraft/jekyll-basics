@@ -1,0 +1,25 @@
+---
+layout: default
+---
+
+<header class='header'>
+  <section class='wrapper'>
+    <div class='headline'>
+      <h1>{{ page.title }}</h1>
+    </div>
+    <section class='meta'>
+      <time datetime='{{ page.date }}'>{{ page.date | date: "%B %d, %Y" }}</time>
+      {% if page.tags %}
+      <span class='tags'>
+        {{ page.tags | join: ', ' }}
+      </span>
+      {% endif %}
+    </section>
+  </body>
+</header>
+
+<section class='body'>
+  <section class='wrapper'>
+    {{ content }}
+  </section>
+</section>

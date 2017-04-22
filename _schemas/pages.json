@@ -1,0 +1,36 @@
+{
+  "title": "Pages",
+  "jekyll": {
+    "type": "content",
+    "id": "posts"
+  },
+  "JSONSchema": {
+    "type": "object",
+    "required": [
+      "body"
+    ],
+    "properties": {
+      "layout": {
+        "type": "string",
+        "title": "Layout"
+      },
+      "title": {
+        "type": "string",
+        "title": "Title"
+      },
+      "permalink": {
+        "type": "string",
+        "title": "Permalink"
+      },
+      "body": {
+        "type": "string",
+        "title": "Body"
+      }
+    }
+  },
+  "uiSchema": {
+    "body": {
+      "ui:widget": "customCodeMirror"
+    }
+  }
+}

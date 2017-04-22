@@ -1,0 +1,21 @@
+@include font-face('icons', 'fonts/icons');
+
+body {
+  text-align: center;
+}
+
+.wrapper {
+  box-sizing: border-box;
+  @include clearfix;
+  margin: 0 auto;
+  max-width: $wrapper;
+  padding: 0 1.5*$space;
+  text-align: left;
+  width: 100%;
+}
+
+/* Grayscale fix (see https://github.com/sass/libsass/issues/151#issuecomment-33536506) */
+
+@function grayscale($value) {
+  @return #{ "grayscale(" + $value + ")" };
+}

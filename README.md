@@ -4,15 +4,11 @@
 
         ruby --version
 
-2. Install Bundler:
+2. Install the `github-pages` gem;
 
-        gem install bundler
+        gem install github-pages
 
-3. Install Jekyll and the required plugins:
-
-        bundle install
-
-*For more details, check the [GitHub help](https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/).*
+If that doesn't work for you, try the [GitHub help](https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/).
 
 You should then be able to run...
 

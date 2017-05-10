@@ -1,5 +1,5 @@
 vendors = _sass/vendors
-packages = egg-scss
+packages = egg-sass
 
 .PHONY: all clean install
 

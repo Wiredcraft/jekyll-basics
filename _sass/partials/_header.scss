@@ -1,3 +1,31 @@
 #header {
   padding: $space 0;
+  a {
+    color: inherit;
+  }
+  .title {
+    display: inline-block;
+    font-family: $headline;
+    font-weight: bold;
+    margin-bottom: $space/2;
+  }
+  .menu {
+    border: 1px solid $black;
+    border-width: 2px 0 1px;
+    @include clearfix;
+    @include font-size($smaller);
+    padding: $space/2 0;
+    .links {
+      float: left;
+      a {
+        margin-right: $space/2;
+      }
+    }
+    .languages {
+      float: right;
+      a {
+        margin-left: $space/2;
+      }
+    }
+  }
 }

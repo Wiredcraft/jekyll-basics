@@ -10,16 +10,18 @@ url: "http://wiredcraft.github.io/jekyll-basics"
 baseurl: ""
 
 # Google tracking (Analytics and Google Tag Manager)
-#google:
-#  tag-manager: GTM-XXXXXX
-#  analytics: UA-XXXXXXX-X
+# google_tag_manager: GTM-XXXXXX
+# google_analytics: UA-XXXXXXX-X
+
+# SEO
+twitter:
+  username: wiredcraft
+logo:
 
 # Build settings
-exclude: ['README.md', 'Makefile', '_PROTECTED', '_VARIANTS']
+exclude: ['README.md', 'Makefile']
 
 # Collections
-excerpt_separator: <!-- more -->
-permalink: /:categories/blog/:title/
 defaults:
   - scope:
       path: ""
@@ -33,13 +35,21 @@ defaults:
     values:
       layout: post
       class: post
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: page
+      class: page
 
 # Plugins
 gems:
 - jekyll-redirect-from
 - jekyll-sitemap
+- jekyll-seo-tag
 
 # Multiligual
 lang:
   - en
+  - fr
   - zh

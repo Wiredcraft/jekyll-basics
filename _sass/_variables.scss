@@ -1,14 +1,16 @@
 /* Misc */
-$wrapper: 1040px;
+$wrapper: 720px;
 
 /* Fonts */
 @import 'https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i,900,900i';
-$headline: 'Roboto', Helvetica, Arial, sans-serif;
-$body: 'Roboto', Helvetica, Arial, sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i');
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,400i,700,700i,900,900i');
+
+$headline: 'Playfair Display', Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+$body: 'Raleway', "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 
 /* Partials */
 
 $partials: (
-  base,
-  menu
+  base
 );

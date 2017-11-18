@@ -1,60 +1,22 @@
-{% comment %} MULTILINGUAL: the following section defines the `t` variable for
-localization and defines the language of the page for content.{% endcomment %}
-
-{% assign t = site.data.translations %}
-{% assign lang_default = site.lang[0] %}
-{% if page.lang != nil %}
-  {% assign lang = page.lang %}
-{% else %}
-  {% assign lang = lang_default %}
-{% endif %}
-
-{% comment %} META: set up some values for the head; meta, title, preview picture.{% endcomment %}
-
-{% assign description = site.description %}
-{% if page.description %}{% assign description = page.description | strip_html | escape %}{% endif %}
-
-{% assign preview = site.preview | prepend: site.baseurl | prepend: site.url %}
-{% if page.preview %}{% assign preview = page.preview %}{% endif %}
-
-{% assign twitter = site.twitter | prepend: '@' %}
-{% if page.twitter %}{% assign twitter = page.twitter %}{% endif %}
-
-{% assign keywords = site.keywords %}
-{% if page.tags %}{% assign keywords = keywords | concat: page.tags %}{% endif %}
+{% include utils/i18n.liquid %}
+{% include utils/path.liquid %}
 
 <html>
 <head>
-  {% if site.google.tag-manager %}{% include google-tag-manager.html %}{% endif %}
+  {% if site.google_tag_manager %}{% include google/tag-manager.html %}{% endif %}
 
-  <!-- Meta -->
   <meta charset='utf-8'/>
   <meta http-equiv='Content-Language' content='{{ lang }}'/>
   <meta name='viewport' content='width=device-width, initial-scale=1'/>
+
+  <!-- SEO -->
+  <title>{% if page.url == "/" %}{{ site.title }} | {{ page.title }}{% else %}{{ page.title }} | {{ site.title }}{% endif %}</title>
   <meta name='keywords' content='{{ keywords | join: ", " }}'/>
-  <meta name='description' content='{{ description }}'>
-
-  <!-- Open graph -->
-  <meta property='og:site_name' content='{{ site.title }}'/>
-  <meta property='og:type' content='website'/>
-  <meta property='og:title' content='{{ title }}'/>
-  <meta property='og:url' content='{{ site.url }}{{ site.baseurl }}{{ page.url }}'/>
-  <meta property='og:description' content='{{ description }}'/>
-  <meta property='og:image' content='{{ preview }}'/>
-
-  <!-- Twitter card -->
-  <meta name='twitter:card' content='summary_large_image'/>
-  <meta name='twitter:site' content='{{ site.twitter }}'/>
-  <meta name='twitter:creator' content='{{ twitter }}'/>
-  <meta name='twitter:title' content='{{ title }}'/>
-  <meta name='twitter:description' content='{{ description }}'/>
-  <meta name='twitter:image' content='{{ preview }}'/>
+  {% seo title=false %}
 
   <!-- Links -->
   <link rel='canonical' href='{{ site.url }}{{ site.baseurl }}{{ page.url | replace:'index.html','' }}'>
   <link rel='alternate' type='application/rss+xml' title='{{ site.title }}' href='{{ site.url }}{{ site.baseurl }}/feed.xml' />
-
-  <title>{% if page.url == "/" %}{{ site.title }} | {{ page.title }}{% else %}{{ page.title }} | {{ site.title }}{% endif %}</title>
 
   <!-- Favicons -->
   {% include favicons.html %}
@@ -63,20 +25,11 @@ localization and defines the language of the page for content.{% endcomment %}
   <link rel='stylesheet' href='{{ site.url }}{{ site.baseurl }}/assets/styles.css'>
 </head>
 
-<body{% if page.class %} class='{{ page.class }}'{% endif %}>
-  {% if site.google.tag-manager %}{% include google-tag-manager-noscript.html %}{% endif %}
+<body class='lang-{{ lang }}{% if page.collection %} type-{{ page.collection }}{% else %}{% if depth > 0 %} page-{{ path | join: '-' }}{% else %} page-front{% endif %}{% endif %}{% if page.class %} {{ page.class }}{% endif %}'>
+  {% if site.google_tag_manager %}{% include google/tag-manager-noscript.html %}{% endif %}
 
   <header id='header'>
     <div class='wrapper'>
-      {% if lang == lang_default %}
-        {% assign translation_lang = site.lang[1] %}
-        {% assign translation_url = page.url | prepend: site.lang[1] | prepend: '/' %}
-      {% else  %}
-        {% assign translation_lang = lang_default %}
-        {% assign translation_url = page.url | replace_first: '/', ''| replace_first: site.lang[1], '' %}
-      {% endif %}
-      <a href='{{ site.url }}{{ site.baseurl }}{{ translation_url }}' class='language'>{{ t[translation_lang].lang[translation_lang] }}</a>
-
       {% include header.html %}
     </div>
   </header>
@@ -94,6 +47,6 @@ localization and defines the language of the page for content.{% endcomment %}
   <!-- JS -->
   <!--[if lt IE 9]><script src='https://html5shim.googlecode.com/svn/trunk/html5.js'></script><![endif]-->
   <script src='{{ site.url }}{{ site.baseurl }}/assets/scripts.js' type='text/javascript'></script>
-  {% if site.google.analytics %}{% include google/analytics.html %}{% endif %}
+  {% if site.google_analytics %}{% include google/analytics.html %}{% endif %}
 </body>
 </html>

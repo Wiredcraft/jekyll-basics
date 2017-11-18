@@ -1,0 +1,16 @@
+{% for translation_lang in site.lang %}
+  {% if translation_lang != lang %}
+    {% if lang == lang_default %}
+      {% assign translation_url = page.url | prepend: translation_lang | prepend: '/' %}
+    {% else %}
+      {% if translation_lang == lang_default %}
+        {% assign translation_url = page.url | replace_first: lang, '' | replace_first: '//', '/' %}
+      {% else %}
+        {% assign translation_url = page.url | replace_first: lang, translation_lang %}
+      {% endif %}
+    {% endif %}
+    <a href='{{ site.url }}{{ site.baseurl }}{{ translation_url }}'>
+      {{ t[translation_lang].lang[translation_lang] }}
+    </a>
+  {% endif %}
+{% endfor %}

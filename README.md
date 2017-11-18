@@ -8,16 +8,26 @@
 
         gem install github-pages
 
-If that doesn't work for you, try the [GitHub help](https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/).
+*If that doesn't work for you, try the [GitHub help](https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/).*
 
 You should then be able to run...
 
+## Dependencies
+
+To update CSS & JS dependencies (e.g. egg, Bourbon, Normalize...), simply run;
+
+    make
+
+*For more details, see the `Makefile`.*
+
 ## Run
 
-It's a regular jekyll site:
+    make serve
 
-    jekyll serve
+Then go to http://localhost:4000. This will overload the Jekyll configuration (`_config.yml`) with the dev settings (`_config-dev.yml`) and make sure it uses the increment build option.
 
-If you're running it locally, you'll need to overload the configuration with the development specific variables (it's also a good idea to use the `--incremental` flag):
+*For more details, see the `Makefile`.*
 
-    jekyll serve --config _config.yml,_config-dev.yml --incremental
+## CMS & Deployment
+
+We usually use [JekyllPro](https://jekyllpro.com), both [to edit the content with the CMS](https;//cms.jekyllpro.com) and deploy branches automatically.

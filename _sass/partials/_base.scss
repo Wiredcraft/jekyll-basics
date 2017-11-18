@@ -4,18 +4,27 @@ body {
   text-align: center;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
 .wrapper {
   box-sizing: border-box;
   @include clearfix;
   margin: 0 auto;
   max-width: $wrapper;
   padding: 0 1.5*$space;
-  text-align: left;
   width: 100%;
 }
 
-/* Grayscale fix (see https://github.com/sass/libsass/issues/151#issuecomment-33536506) */
-
-@function grayscale($value) {
-  @return #{ "grayscale(" + $value + ")" };
+.cover {
+  background-position: center center;
+  background-size: cover;
+  min-height: 50px;
+  min-width: 50px;
 }

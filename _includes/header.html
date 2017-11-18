@@ -1,1 +1,12 @@
-<a href='https://github.com/Wiredcraft/jekyll-basics'>See on GitHub</a>
+<a class='title'>{{ site.title }}</a>
+<nav class='menu'>
+  <section class='links'>
+    {% for item in site.data.menu %}
+      {% if item.url %}<a href='{{ item.url }}'>{{ t[lang].menu[item.id] }}</a>
+      {% else %}<a href='{{ site.url }}{{ site.baseurl }}{{ t_url_prefix }}{{ item.path }}'>{{ t[lang].menu[item.id] }}</a>{% endif %}
+    {% endfor %}
+  </section>
+  <section class='languages'>
+    {% include lang.html %}
+  </section>
+</nav>

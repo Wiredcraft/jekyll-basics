@@ -1,5 +1,5 @@
+# Override configuation for local development
 url: "http://localhost:4000"
-google_analytics: ""
 baseurl: ""
-ga: ""
-drip: ""
+google_tag_manager: false
+google_analytics: false

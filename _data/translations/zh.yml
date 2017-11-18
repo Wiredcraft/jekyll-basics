@@ -1,3 +1,8 @@
 lang:
   en: 英文
+  fr: 法语
   zh: 中文
+menu:
+  home: 首页
+  blog: 博客
+  github: 去GitHub

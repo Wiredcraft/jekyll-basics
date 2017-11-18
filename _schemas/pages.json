@@ -2,7 +2,7 @@
   "title": "Pages",
   "jekyll": {
     "type": "content",
-    "id": "posts"
+    "id": "pages"
   },
   "JSONSchema": {
     "type": "object",

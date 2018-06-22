@@ -1,5 +1,6 @@
 ---
 title: 第一篇文章
+description: 这是“文章“列表里的第一篇文章。
 lang: zh
 categories: zh
 image: /files/images/china-street.jpg

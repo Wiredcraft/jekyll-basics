@@ -1,0 +1,25 @@
+.loading {
+  &:before {
+    background: rgba(#FFF, 0.8);
+    bottom: 0;
+    content: '';
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 999;
+  }
+  position: relative;
+  &:after {
+    @include spinner();
+    bottom: 0;
+    content: '';
+    display: block;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+  }
+}

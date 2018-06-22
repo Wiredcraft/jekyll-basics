@@ -1,0 +1,9 @@
+#footer {
+  border-top: 1px solid $line-3;
+  color: $grey;
+  margin-top: 2*$space;
+  padding: $space/2 0;
+  a {
+    color: inherit;
+  }
+}

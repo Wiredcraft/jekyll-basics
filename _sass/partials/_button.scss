@@ -1,0 +1,131 @@
+@if index($partials, button) {
+  .button {
+    background: $background;
+    border: 1px solid $line;
+    border-radius: $radius;
+    box-sizing: border-box;
+    color: $black;
+    cursor: pointer;
+    display: inline-block;
+    @include font-size($small);
+    line-height: inherit;
+    outline: none;
+    padding: $space/4 1.5*$space/2;
+    text-align: center;
+    text-transform: uppercase;
+    transition-property: background, border, box-shadow, color;
+    transition-duration: $ease;
+    &.smaller {
+      padding: $space/8 $space/2;
+    }
+    &.larger {
+      padding: $space/3 $space;
+      @include font-size($smaller);
+    }
+    &.processing {
+      padding-right: 1.5*$space/2 + 1.5*$space/2;
+      position: relative;
+      &:before {
+        @include spinner($space/24, $space/2, #FFF, rgba(#000, 0.1));
+        content: '';
+        display: block;
+        height: 1.5*$space/2;
+        margin-top: -1.5*$space/4;
+        position: absolute;
+        right: 1.5*$space/4;
+        top: 50%;
+        width: 1.5*$space/2;
+      }
+      &.larger {
+        padding-right: $space + $space;
+        &:before {
+          height: $space;
+          margin-top: -$space/2;
+          right: $space/2;
+          width: $space;
+        }
+      }
+      &.smaller {
+        padding-right: $space/2 + $space/2;
+        &:before {
+          height: $space/2;
+          margin-top: -$space/4;
+          right: $space/4;
+          width: $space/2;
+        }
+      }
+    }
+    &:hover {
+      border-color: $primary;
+      color: $primary;
+      text-decoration: none;
+    }
+    &:active,
+    &:focus {
+      box-shadow: 0 0 0 2px rgba($blue, 0.2);
+    }
+    &[disabled=disabled],
+    &[disabled=true],
+    &[disabled],
+    &.disabled {
+      border-color: $line-2;
+      color: $line;
+    }
+    &.primary {
+      background: $primary;
+      border-color: $primary;
+      color: #FFF;
+      &:hover {
+        background: darken($primary, 5%);
+        border-color: darken($primary, 5%);
+      }
+      &[disabled=disabled],
+      &[disabled=true],
+      &[disabled],
+      &.disabled {
+        background: $line;
+        border-color: $line;
+      }
+    }
+    &.danger {
+      background: $red;
+      border-color: $red;
+      color: #FFF;
+      &:hover {
+        background: darken($red, 5%);
+        border-color: darken($red, 5%);
+      }
+      &[disabled=disabled],
+      &[disabled=true],
+      &[disabled],
+      &.disabled {
+        background: $line;
+        border-color: $line;
+      }
+    }
+  }
+
+  .bundle {
+    display: inline-block;
+    > .button,
+    > * .button {
+      border-radius: 0;
+      border-right-width: 0;
+      &:hover {
+        & + .button,
+        & + * .button {
+          border-left-color: $primary;
+        }
+      }
+    }
+    > .button:first-child,
+    > *:first-child .button {
+      border-radius: $radius 0 0 $radius;
+    }
+    > .button:last-child,
+    > *:last-child .button {
+      border-radius: 0 $radius $radius 0;
+      border-right-width: 1px;
+    }
+  }
+}

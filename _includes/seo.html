@@ -1,0 +1,60 @@
+{% assign description = site.description %}
+{% if page.description %}{% assign description = page.description | strip_html | escape %}
+{% elsif page.excerpt %}{% assign description = page.excerpt | strip_html | escape | strip_newlines %}{% endif %}
+{% assign image = site.image | prepend: site.baseurl | prepend: site.url %}
+{% if page.image %}{% assign image = page.image | prepend: site.baseurl | prepend: site.url %}{% endif %}
+{% assign twitter = site.twitter | prepend: '@' %}
+{% if page.twitter %}{% assign twitter = page.twitter %}{% endif %}
+{% assign keywords = site.keywords %}
+{% if page.tags %}{% assign keywords = keywords | concat: page.tags %}{% endif %}
+
+<!-- Meta -->
+<meta name="keywords" content="{{ keywords | join: ', ' }}"/>
+<meta name="description" content="{{ description | truncate: 153 }}">
+
+<!-- Open graph -->
+<meta property="og:site_name" content="{{ site.title }}"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="{{ page.title }}"/>
+<meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}"/>
+<meta property="og:description" content="{{ description }}"/>
+<meta property="og:image" content="{{ image }}"/>
+
+<!-- Twitter card -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="{{ site.twitter }}"/>
+<meta name="twitter:creator" content="{{ twitter }}"/>
+<meta name="twitter:title" content="{{ page.title }}"/>
+<meta name="twitter:description" content="{{ description }}"/>
+<meta name="twitter:image" content="{{ image }}"/>
+
+<!-- Links -->
+<link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
+<link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ site.url }}{{ site.baseurl }}/feed.xml" />
+
+{% if depth == 0 %}
+<!-- JSON LD -->
+<script type="application/ld+json">
+  {
+    "name":"{{ site.title }}",
+    "description":"{{ site.description }}",
+    "url":"{{ site.url }}",
+    "headline":"{{ site.description }}",
+    "dateModified": null,
+    "datePublished": null,
+    "sameAs": ["{{ site.social | join: '", "' }}"],
+    "@type":"WebSite",
+    "author":null,
+    "image":null,
+    "publisher":{
+      "@type":"Organization",
+      "logo":{
+        "@type":"ImageObject",
+        "url":"{{ site.url }}{{ site.baseurl }}/assets/logo-square.png"
+      }
+    },
+    "mainEntityOfPage":null,
+    "@context":"http://schema.org"
+  }
+</script>
+{% endif %}

@@ -1,12 +1,12 @@
-<a class='title'>{{ site.title }}</a>
-<nav class='menu'>
-  <section class='links'>
+<nav class="menu">
+  <section class="links">
+    <strong class="">{{ site.title }}</strong>
     {% for item in site.data.menu %}
-      {% if item.url %}<a href='{{ item.url }}'>{{ t[lang].menu[item.id] }}</a>
-      {% else %}<a href='{{ site.url }}{{ site.baseurl }}{{ t_url_prefix }}{{ item.path }}'>{{ t[lang].menu[item.id] }}</a>{% endif %}
+      {% if item.url %}<a href="{{ item.url }}">{{ t[lang].menu[item.id] }}</a>
+      {% else %}<a href="{{ site.url }}{{ site.baseurl }}{{ t_url_prefix }}{{ item.path }}">{{ t[lang].menu[item.id] }}</a>{% endif %}
     {% endfor %}
   </section>
-  <section class='languages'>
+  <section class="languages">
     {% include lang.html %}
   </section>
 </nav>

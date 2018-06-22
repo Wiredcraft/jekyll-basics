@@ -1,0 +1,60 @@
+.switch {
+  display: block;
+  height: map-get($switch, size) + 2*map-get($switch, padding);
+  position: relative;
+  width: map-get($switch, length) + 2*map-get($switch, padding);
+  &:active {
+    border-color: $blue;
+    border-radius: 2*map-get($switch, size);
+    box-shadow: 0 0 0 2px rgba($blue, 0.2);
+    outline: none;
+  }
+  input {
+    opacity: 0;
+    &:checked+.slider {
+      background: $blue;
+    }
+    &:checked+.slider span {
+      transform: translateX(map-get($switch, length) - map-get($switch, size));
+    }
+  }
+  .slider {
+    background: $line;
+    border-radius: 2*map-get($switch, size);
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition-duration: $ease;
+    span {
+      background: #FFF;
+      border-radius: 50%;
+      bottom: map-get($switch, padding);
+      height: map-get($switch, size);
+      left: map-get($switch, padding);
+      position: absolute;
+      width: map-get($switch, size);
+      transition-duration: $ease;
+      &:after {
+        content: '';
+        border-radius: 50%;
+        background: $green;
+        left: -9px;
+        opacity: 0;
+        position: absolute;
+        top: -9px;
+        -ms-transform: scale(0);
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        height: map-get($switch, size)*1.6;
+        width: map-get($switch, size)*1.6;
+      }
+    }
+  }
+  & + label {
+    cursor: pointer;
+    display: inline-block;
+  }
+}

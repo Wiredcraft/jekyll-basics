@@ -1,5 +1,6 @@
 ---
 title: Troisème article
+description: 'Ceci est le troisième article de la collection "posts".'
 lang: fr
 categories: fr
 image: /files/images/china-lamp.jpg

@@ -1,0 +1,17 @@
+---
+layout: page
+---
+
+{% include utils/i18n.liquid %}
+
+{% comment %} Retrieve the posts for the current language. {% endcomment %}
+
+{{ content }}
+
+{% assign posts = site.posts | where: 'lang', lang%}
+
+<ul>
+{% for post in posts %}
+<li>{% include teaser.html %}</li>
+{% endfor %}
+</ul>

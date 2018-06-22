@@ -1,0 +1,24 @@
+#header {
+  background: $black;
+  color: #FFF;
+  margin-bottom: 2*$space;
+  text-align: right;
+  .container {
+    padding-bottom: $space/2;
+    padding-top: $space/2;
+  }
+  a {
+    color: inherit;
+    margin-left: 1.5*$space/2;
+    opacity: 0.6;
+    transition-duration: $ease;
+    transition-property: opacity;
+    &:hover {
+      opacity: 1;
+      text-decoration: none;
+    }
+  }
+  .links {
+    float: left;
+  }
+}

@@ -1,0 +1,76 @@
+@if index($partials, tooltip) {
+  .tooltip,
+  .tooltip-bottom,
+  .tooltip-left,
+  .tooltip-right,
+  .tooltip-top {
+    position: relative;
+    > .text {
+      background: $black;
+      border-radius: $radius - 1;
+      color: #FFF;
+      @include font-size($small);
+      line-height: 160%;
+      opacity: 0;
+      padding: $space/4 1.5*$space/4;
+      position: absolute;
+      text-align: center;
+      transition-property: opacity, transform;
+      transition-duration: $ease;
+      // transform: translate(0, 0);
+      visibility: hidden;
+      white-space: nowrap;
+      width: auto;
+      z-index: 999;
+    }
+    &:hover > .text {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  .tooltip,
+  .tooltip-top {
+    > .text {
+      bottom: 100%;
+      left: 50%;
+      margin-bottom: 5px;
+      transform: translateX(-50%);
+      &:after {
+        @include arrow(bottom, $black);
+      }
+    }
+  }
+  .tooltip-bottom {
+    > .text {
+      left: 50%;
+      margin-top: 5px;
+      top: 100%;
+      transform: translateX(-50%);
+      &:after {
+        @include arrow(top, $black);
+      }
+    }
+  }
+  .tooltip-left {
+    > .text {
+      margin-right: 5px;
+      right: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      &:after {
+        @include arrow(right, $black);
+      }
+    }
+  }
+  .tooltip-right {
+    > .text {
+      left: 100%;
+      margin-left: 5px;
+      top: 50%;
+      transform: translateY(-50%);
+      &:after {
+        @include arrow(left, $black);
+      }
+    }
+  }
+}

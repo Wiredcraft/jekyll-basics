@@ -1,6 +1,4 @@
 - id: home
   path: /
-- id: blog
-  path: /blog
 - id: github
   url: https://github.com/Wiredcraft/jekyll-basics

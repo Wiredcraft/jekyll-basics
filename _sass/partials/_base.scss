@@ -1,30 +1,217 @@
-@include font-face('icons', 'fonts/icons');
+@if index($partials, base) {
+  html {
+    @include breakpoint(mobile) {
+      font-size: 57%;
+    }
+    @include breakpoint(tablet) {
+      font-size: 59%;
+    }
+    @include breakpoint(desktop) {
+      font-size: 62.5%;
+    }
+  }
 
-body {
-  text-align: center;
+  body {
+    background: $background;
+    color: $black;
+    font-family: $body;
+    @include font-size($regular);
+    font-size: $regular + px; // Because of Chrome bug (see https://code.google.com/p/chromium/issues/detail?id=319623)
+    font-weight: normal;
+    line-height: 160%;
+  }
+
+  a {
+    cursor: pointer;
+    color: $blue;
+    text-decoration: none;
+    transition-property: color;
+    transition-duration: $ease;
+    &:hover {
+      color: shade($blue, 10%);
+      text-decoration: underline;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $black;
+    font-family: $headline;
+    font-weight: 500;
+    line-height: 160%;
+    margin: 0 0 $space;
+  }
+
+  h1 {
+    @include font-size($headline-1);
+  }
+
+  h2 {
+    @include font-size($headline-2);
+  }
+
+  h3,
+  h4,
+  h5,
+  h6 {
+    @include font-size($headline-3);
+  }
+
+  strong,
+  b {
+    font-weight: 500;
+  }
+
+  p,
+  pre {
+    margin: 0 0 $space;
+    &.smaller {
+      @include font-size($smaller);
+      line-height: 160%;
+      margin-bottom: $space/2;
+    }
+  }
+
+  ul,
+  ol {
+    margin: 0 0 $space $space;
+    padding: 0;
+    li {
+      margin: 0 0 $space/4;
+      padding: 0;
+    }
+    ul,
+    ol {
+      margin-bottom: 0;
+      li {
+        margin: $space/4 0 0;
+      }
+    }
+  }
+
+  small {
+    @include font-size($small);
+    line-height: 160%;
+  }
+
+  blockquote {
+    border-left: $space/4 solid $light;
+    color: tint($black, 40%);
+    margin: 0 $space $space;
+    padding-left: $space;
+    > *:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  /* Code */
+
+  code,
+  .code {
+    background: $light;
+    border-radius: $radius;
+    display: inline-block;
+    font-family: $code;
+    font-size: 85%;
+    padding: 0 $space/4;
+  }
+
+  pre {
+    code,
+    .code {
+      display: block;
+      padding: $space/4 $space/2;
+      white-space: pre-wrap;
+    }
+  }
+
+  /* Tables */
+
+  table {
+    border: 0;
+    border-collapse: collapse;
+    margin: 0 0 $space;
+    text-align: left;
+    width: 100%;
+    thead,
+    tbody {
+      th,
+      td {
+        border: 0;
+        padding: $space/6 $space/4;
+      }
+    }
+    thead {
+      @include font-size($small);
+      font-weight: bold;
+      th {
+        white-space: nowrap;
+      }
+    }
+    tbody {
+      tr {
+        td,
+        th {
+          border-top: 1px solid $line-3;
+          padding: $space/4;
+        }
+      }
+    }
+  }
+
+  /* Icons */
+
+  .icon {
+    display: inline-block;
+    vertical-align: middle;
+    svg {
+      display: block;
+      fill: $grey;
+      height: $space;
+      transition-property: fill;
+      transition-duration: $ease;
+      vertical-align: middle;
+      width: $space;
+    }
+    &.smaller {
+      svg {
+        height: 1.5*$space/2;
+        width: 1.5*$space/2;
+      }
+    }
+    &.small {
+      svg {
+        height: $space/2;
+        width: $space/2;
+      }
+    }
+    &.larger {
+      svg {
+        height: 1.5*$space;
+        width: 1.5*$space;
+      }
+    }
+    &.large {
+      svg {
+        height: 2*$space;
+        width: 2*$space;
+      }
+    }
+  }
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: normal;
-}
-
-.wrapper {
-  box-sizing: border-box;
-  @include clearfix;
-  margin: 0 auto;
-  max-width: $wrapper;
-  padding: 0 1.5*$space;
-  width: 100%;
-}
-
-.cover {
-  background-position: center center;
-  background-size: cover;
-  min-height: 50px;
-  min-width: 50px;
+a.icon {
+  &:hover {
+    svg {
+      fill: $black;
+    }
+  }
 }

@@ -1,5 +1,7 @@
 ---
+layout: front
 lang: fr
-title: Jekyll Basics (en Français)
-description: "Une configuration standard for un site Jekyll multilingue."
+categories: fr
+title: Bonjour!
+description: "Jekyll Basics est une install standard pour Jekyll avec support multilingue (et Jekyll+ CMS)."
 ---

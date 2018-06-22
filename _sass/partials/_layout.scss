@@ -1,0 +1,8 @@
+.container {
+  box-sizing: border-box;
+  @include clearfix;
+  margin: 0 auto;
+  padding-left: $space/2;
+  padding-right: $space/2;
+  max-width: $container;
+}

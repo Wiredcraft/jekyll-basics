@@ -2,52 +2,54 @@
 {% include utils/path.liquid %}
 
 <!doctype html>
-<html>
+<html lang="{{ lang }}">
 <head>
   {% if site.google_tag_manager %}{% include google/tag-manager.html %}{% endif %}
 
-  <meta charset='utf-8'/>
-  <meta http-equiv='Content-Language' content='{{ lang }}'/>
-  <meta name='viewport' content='width=device-width, initial-scale=1'/>
+  <title>{% if depth > 0 %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }} | {{ page.title }}{% endif %}</title>
 
-  <!-- SEO -->
-  <title>{% if page.url == "/" %}{{ site.title }} | {{ page.title }}{% else %}{{ page.title }} | {{ site.title }}{% endif %}</title>
-  <meta name='keywords' content='{{ keywords | join: ", " }}'/>
-  {% seo title=false %}
+  <!-- Meta -->
+  <meta charset="utf-8"/>
+  <meta http-equiv="Content-Language" content="{{ lang }}"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  {% include seo.html %}
 
   <!-- Links -->
-  <link rel='canonical' href='{{ site.url }}{{ site.baseurl }}{{ page.url | replace:'index.html','' }}'>
-  <link rel='alternate' type='application/rss+xml' title='{{ site.title }}' href='{{ site.url }}{{ site.baseurl }}/feed.xml' />
+  <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page.url | replace:"index.html","" }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ site.url }}{{ site.baseurl }}/feed.xml" />
 
   <!-- Favicons -->
   {% include favicons.html %}
 
   <!-- CSS -->
-  <link rel='stylesheet' href='{{ site.url }}{{ site.baseurl }}/assets/styles.css'>
+  <link rel="stylesheet" href="{{ site.url }}{{ site.baseurl }}/assets/styles.css?version-{{ site.version }}">
 </head>
 
-<body class='lang-{{ lang }}{% if page.collection %} type-{{ page.collection }}{% else %}{% if depth > 0 %} page-{{ path | join: '-' }}{% else %} page-front{% endif %}{% endif %}{% if page.class %} {{ page.class }}{% endif %}'>
+<body class="lang-{{ lang }}{% if page.collection %} type-{{ page.collection }}{% else %}{% if depth > 0 %} page-{{ path | join: '-' }}{% else %} page-front{% endif %}{% endif %}{% if page.class %} {{ page.class }}{% endif %}">
   {% if site.google_tag_manager %}{% include google/tag-manager-noscript.html %}{% endif %}
 
-  <header id='header'>
-    <div class='wrapper'>
+  <header id="header">
+    <div class="container">
       {% include header.html %}
     </div>
   </header>
 
-  <section id='content'>
-    {{ content }}
+  <section id="content">
+    <div class="container">
+      {{ content }}
+    </div>
   </section>
 
-  <footer id='footer'>
-    <div class='wrapper'>
+  <footer id="footer">
+    <div class="container">
       {% include footer.html %}
     </div>
   </footer>
 
   <!-- JS -->
-  <!--[if lt IE 9]><script src='https://html5shim.googlecode.com/svn/trunk/html5.js'></script><![endif]-->
-  <script src='{{ site.url }}{{ site.baseurl }}/assets/scripts.js' type='text/javascript'></script>
+  <!--[if lt IE 9]><script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="{{ site.url }}{{ site.baseurl }}/assets/scripts.js?version-{{ site.version }}" type="text/javascript"></script>
   {% if site.google_analytics %}{% include google/analytics.html %}{% endif %}
 </body>
 </html>

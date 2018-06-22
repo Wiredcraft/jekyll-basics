@@ -1,5 +1,6 @@
 ---
 title: Premier article
+description: 'Ceci est le premier article de la collection "posts".'
 lang: fr
 categories: fr
 image: /files/images/china-street.jpg

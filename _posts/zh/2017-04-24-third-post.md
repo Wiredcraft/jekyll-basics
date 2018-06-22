@@ -1,5 +1,6 @@
 ---
 title: 第三篇文章
+description: 这是“文章“列表里的第三篇文章。
 lang: zh
 categories: zh
 image: /files/images/china-lamp.jpg

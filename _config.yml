@@ -14,9 +14,18 @@ baseurl: ""
 # google_analytics: UA-XXXXXXX-X
 
 # SEO
-twitter:
-  username: wiredcraft
-logo:
+twitter: wiredcraft
+facebook: https://www.facebook.com/teamwiredcraft
+logo: https://wiredcraft.com/assets/logomark-sq.png
+image: /assets/social/tech.jpg
+social:
+  name: Wiredcraft
+  links:
+    - https://www.facebook.com/teamwiredcraft
+    - https://twitter.com/wiredcraft
+    - https://www.linkedin.com/company/wiredcraft
+    - https://github.com/wiredcraft
+    - https://weibo.com/1970385015/
 
 # Build settings
 exclude: ['README.md', 'Makefile']
@@ -43,13 +52,15 @@ defaults:
       class: page
 
 # Plugins
-gems:
+plugins:
 - jekyll-redirect-from
 - jekyll-sitemap
-- jekyll-seo-tag
 
 # Multiligual
 lang:
   - en
   - fr
   - zh
+
+# Version (helps with force reloading assets)
+version: sparkle

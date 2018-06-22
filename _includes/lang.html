@@ -9,7 +9,7 @@
         {% assign translation_url = page.url | replace_first: lang, translation_lang %}
       {% endif %}
     {% endif %}
-    <a href='{{ site.url }}{{ site.baseurl }}{{ translation_url }}'>
+    <a href="{{ site.url }}{{ site.baseurl }}{{ translation_url }}">
       {{ t[translation_lang].lang[translation_lang] }}
     </a>
   {% endif %}

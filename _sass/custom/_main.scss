@@ -1,0 +1,76 @@
+h1 + p {
+  @include font-size($headline-3);
+  line-height: 160%;
+  margin-bottom: 2*$space;
+  margin-top: -$space;
+}
+
+.cover {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.thumbnail {
+  background-color: $light;
+  height: 3*$space;
+  width: 3*$space;
+}
+
+// Front page
+
+.page-front {
+  #content {
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      li {
+        border-top: 1px solid $line-2;
+        margin: 0;
+        padding: 0;
+        a {
+          color: inherit;
+          display: block;
+          padding: $space 0;
+          transition-duration: $ease;
+          transition-property: background;
+          &:hover {
+            background: $light;
+            text-decoration: none;
+          }
+        }
+        h3 {
+          margin: 0;
+        }
+        p {
+          color: $grey;
+          margin: 0;
+        }
+        h3,
+        p {
+          margin-left: 3*$space + 1.5*$space/2;
+        }
+      }
+      .thumbnail {
+        float: left;
+        margin-right: 1.5*$space/2;
+        margin-top: $space/3;
+      }
+    }
+  }
+}
+
+// Post page
+
+.type-posts {
+  #content {
+    .cover {
+      height: 0;
+      margin-bottom: $space;
+      padding-top: 50%;
+      width: 100%;
+    }
+  }
+}

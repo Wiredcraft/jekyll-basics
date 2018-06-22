@@ -1,5 +1,6 @@
 ---
 title: Second article
+description: 'Ceci est le second article de la collection "posts".'
 lang: fr
 categories: fr
 image: /files/images/china-shanghai.jpg

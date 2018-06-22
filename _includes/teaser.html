@@ -1,5 +1,5 @@
-<a href='{{ site.url }}{{ site.baseurl }}{{ post.url }}' class='teaser'>
-  <div class='cover' style='background-image: url("{{ post.image }}");'></div>
-  <h2>{{ post.title }}</h2>
+<a class="teaser" href="{{ site.url }}{{ site.baseurl }}{{ post.url }}">
+  <div class="cover thumbnail" style="background-image: url('{{ post.image }}');"></div>
+  <h3>{{ post.title }}</h3>
   <p>{{ post.excerpt | strip_html }}</p>
 </a>

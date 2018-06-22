@@ -16,7 +16,7 @@ baseurl: ""
 # SEO
 twitter: wiredcraft
 facebook: https://www.facebook.com/teamwiredcraft
-logo: https://wiredcraft.com/assets/logomark-sq.png
+logo: /assets/logo.png
 image: /assets/social/tech.jpg
 social:
   name: Wiredcraft

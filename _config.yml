@@ -64,3 +64,6 @@ lang:
 
 # Version (helps with force reloading assets)
 version: sparkle
+
+# Jekyll+ (not useful if you're running on GitHub pages)
+# jekyllplus: Wiredcraft/jekyll-basics/master

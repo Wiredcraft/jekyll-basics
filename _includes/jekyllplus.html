@@ -1,5 +1,5 @@
 <script>
-var JEKYLLPLUS_REPO = "{{ site.github.repository_nwo }}/{{ site.github.source.branch }}";
+var JEKYLLPLUS_REPO = "{% if site.jekyllplus %}{{ site.jekyllplus }}{% else %}{{ site.github.repository_nwo }}/{{ site.github.source.branch }}{% endif %}";
 var JEKYLLPLUS_PATH = "{{ page.path }}";
 </script>
 <script src="//cms.jekyllplus.com/assets/widget.js"/></script>

@@ -1,4 +1,4 @@
-AVOID MESSING WITH THIS FOLDER.
+**AVOID MESSING WITH THIS FOLDER.**
 
 It contains mostly SASS mixins that we're leveraging in `partials/` and `custom/`
 and doesn't impact your actual CSS.

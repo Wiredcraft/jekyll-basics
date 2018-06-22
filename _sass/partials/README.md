@@ -1,4 +1,4 @@
-AVOID MESSING WITH THIS FOLDER.
+**AVOID MESSING WITH THIS FOLDER.**
 
 It contains SASS files that define default styles for things like buttons, dropdown
 menus, forms...

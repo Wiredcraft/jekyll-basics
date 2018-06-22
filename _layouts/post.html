@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<div class="cover" style="background-image: url('{{ page.image }}');"></div>
+<div class="cover" style="background-image: url('{{ site.url }}{{ site.baseurl }}{{ page.image }}');"></div>
 
 <small class="meta">
   <time datetime="{{ page.date }}">{{ page.date | date: '%d/%m/%Y' }}</time>

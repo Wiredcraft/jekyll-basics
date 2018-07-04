@@ -17,39 +17,26 @@ baseurl: ""
 twitter: wiredcraft
 facebook: https://www.facebook.com/teamwiredcraft
 logo: /assets/logo.png
-image: /assets/social/tech.jpg
+image: /assets/logo.png
 social:
-  name: Wiredcraft
-  links:
-    - https://www.facebook.com/teamwiredcraft
-    - https://twitter.com/wiredcraft
-    - https://www.linkedin.com/company/wiredcraft
-    - https://github.com/wiredcraft
-    - https://weibo.com/1970385015/
+  - https://www.facebook.com/teamwiredcraft
+  - https://twitter.com/wiredcraft
+  - https://www.linkedin.com/company/wiredcraft
+  - https://github.com/wiredcraft
+  - https://weibo.com/1970385015/
 
 # Build settings
 exclude: ['README.md', 'Makefile']
 
 # Collections
+permalink: /:categories/:title/
 defaults:
-  - scope:
-      path: ""
-      type: posts
-    values:
-      layout: post
-      class: post
   - scope:
       path: ""
       type: drafts
     values:
       layout: post
       class: post
-  - scope:
-      path: ""
-      type: pages
-    values:
-      layout: page
-      class: page
 
 # Plugins
 plugins:

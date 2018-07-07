@@ -25,6 +25,10 @@ social:
   - https://github.com/wiredcraft
   - https://weibo.com/1970385015/
 
+# Sitemap (see sitemap.xml)
+sitemap:
+  changefreq: weekly
+
 # Build settings
 exclude: ['README.md', 'Makefile']
 
@@ -40,7 +44,6 @@ defaults:
 
 # Plugins
 plugins:
-- jekyll-redirect-from
 - jekyll-sitemap
 
 # Multiligual

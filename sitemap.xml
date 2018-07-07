@@ -1,0 +1,39 @@
+---
+layout: null
+---
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {% for collection in site.collections %}
+  {% if site.lang.size > 1 %}{% assign docs = collection.docs | where: 'lang', site.lang.first %}
+  {% else %}{% assign docs = collection.docs %}{% endif %}
+  {% for doc in docs %}
+  <url>
+    <loc>{{ site.url }}{{ site.baseurl }}{{ doc.url }}</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    {% if site.lang.size > 1 %}
+    {% for translation_lang in site.lang %}
+    <xhtml:link rel="alternate" hreflang="{{ translation_lang }}" href="{{ site.url }}{{ site.baseurl }}{% if forloop.first != true %}/{{ translation_lang }}{% endif %}{{ doc.url }}"/>
+    {% endfor %}
+    {% endif %}
+  </url>
+  {% endfor %}
+  {% endfor %}
+  {% if site.lang.size > 1 %}{% assign docs = site.pages | where: 'lang', site.lang.first %}
+  {% else %}{% assign docs = site.pages %}{% endif %}
+  {% for doc in docs %}
+  <url>
+    <loc>{{ site.url }}{{ site.baseurl }}{{ doc.url }}</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.3</priority>
+    {% if site.lang.size > 1 %}
+    {% for translation_lang in site.lang %}
+    <xhtml:link rel="alternate" hreflang="{{ translation_lang }}" href="{{ site.url }}{{ site.baseurl }}{% if forloop.first != true %}/{{ translation_lang }}{% endif %}{{ doc.url }}"/>
+    {% endfor %}
+    {% endif %}
+  </url>
+  {% endfor %}
+</urlset>

@@ -4,8 +4,9 @@ layout: null
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.google.com/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   {% for collection in site.collections %}
-  {% if site.lang.size > 1 %}{% assign docs = collection.docs | where: 'lang', site.lang.first %}
-  {% else %}{% assign docs = collection.docs %}{% endif %}
+  {{ collection.label }}
+  {% if site.lang.size > 1 %}{% assign docs = site[collection.label] | where: 'lang', site.lang.first %}
+  {% else %}{% assign docs = site[collection.label] %}{% endif %}
   {% for doc in docs %}
   <url>
     <loc>{{ site.url }}{{ site.baseurl }}{{ doc.url }}</loc>
